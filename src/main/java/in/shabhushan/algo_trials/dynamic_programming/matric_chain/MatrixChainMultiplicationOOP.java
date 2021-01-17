@@ -6,12 +6,18 @@ import java.util.Map;
 
 public class MatrixChainMultiplicationOOP {
 
-  public static int mcm(int[] p) {
+  public static long mcm(int[] p) {
     // Map<Pair<MatrixStart, MatrixEnd>, CostOfMultiplication>
     Map<Map.Entry<Integer, Integer>, MatrixCost> map = new HashMap<>();
 
     List<MatrixCost> matrixCosts = MatrixCost.makePairs(p);
 
     return MatrixCost.minimumCost(matrixCosts, 0, matrixCosts.size() - 1, map).getCost();
+  }
+
+  public static long mcmDP(int[] p) {
+    List<MatrixCost> matrixCosts = MatrixCost.makePairs(p);
+
+    return MatrixCost.minimumCost(matrixCosts).getCost();
   }
 }

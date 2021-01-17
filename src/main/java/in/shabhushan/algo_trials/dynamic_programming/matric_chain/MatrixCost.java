@@ -8,18 +8,18 @@ import java.util.Map;
 public class MatrixCost {
   private int rows;
   private int cols;
-  private int cost;
+  private long cost;
 
   private MatrixCost left;
   private MatrixCost right;
 
-  public MatrixCost(int rows, int cols, int cost) {
+  public MatrixCost(int rows, int cols, long cost) {
     this.rows = rows;
     this.cols = cols;
     this.cost = cost;
   }
 
-  public MatrixCost(int rows, int cols, int cost, MatrixCost left, MatrixCost right) {
+  public MatrixCost(int rows, int cols, long cost, MatrixCost left, MatrixCost right) {
     this.rows = rows;
     this.cols = cols;
     this.cost = cost;
@@ -27,7 +27,7 @@ public class MatrixCost {
     this.right = right;
   }
 
-  private int cost(MatrixCost otherMatrix) {
+  private long cost(MatrixCost otherMatrix) {
     return this.rows * this.cols * otherMatrix.cols + this.cost + otherMatrix.cost;
   }
 
@@ -72,7 +72,35 @@ public class MatrixCost {
     }
   }
 
-  public int getCost() {
+  public static MatrixCost minimumCost(List<MatrixCost> matrices) {
+    int n = matrices.size();
+
+    MatrixCost[][] costs = new MatrixCost[n][n];
+
+    for (int i = 0; i < n; i++) {
+      // 0 cost along diagonal
+      costs[i][i] = matrices.get(i);
+    }
+
+    for (int len = 1; len < n; len++) {
+      for (int i = 0; i < n - len; i++) {
+        int k = i + len;
+
+        for (int j = i; j < k; j++) {
+          MatrixCost cost = costs[i][j].multiply(costs[j + 1][k]);
+
+          if (costs[i][k] == null || cost.getCost() < costs[i][k].getCost()) {
+            costs[i][k] = cost;
+          }
+
+        }
+      }
+    }
+
+    return costs[0][n - 1];
+  }
+
+  public long getCost() {
     return cost;
   }
 }
