@@ -3,7 +3,7 @@ package in.shabhushan.algo_trials.arrays;
 import java.util.Map;
 
 /**
- * Given an array and a number of operations allowed on the array, maximize the median and return the value.
+ * Given a sorted array and a number of operations allowed on the array, maximize the median and return the value.
  * The only operation allowed is to increase the value of any element by 1.
  *
  * Eg.
