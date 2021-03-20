@@ -11,6 +11,42 @@ import java.util.*;
 public class MatrixChainMultiplication {
   private static Map<Map.Entry<Integer, Integer>, Integer> map;
 
+  public static int mcmDP(int[] arr) {
+    int n = arr.length;
+
+    int[][] dp = new int[n][n];
+
+    int[][] brackets = new int[n][n];
+
+    // diagonal row of zero represents the base case
+
+    for (int length = 1; length < n; length++) {
+      for (int start = 1; start + length < n; start++) {
+        int end = start + length;
+
+        dp[start][end] = Integer.MAX_VALUE;
+
+        for (int k = start; k < end; k++) {
+          int cost = dp[start][k] + dp[k + 1][end] + arr[start - 1] * arr[k] * arr[end];
+
+          if (cost < dp[start][end]) {
+            brackets[start][end] = k;
+            dp[start][end] = cost;
+          }
+
+          /*dp[start][end] = Math.min(
+              dp[start][end],
+              dp[start][k] + dp[k + 1][end] + arr[start - 1] * arr[k] * arr[end]
+          );*/
+        }
+      }
+    }
+
+    System.out.println(Arrays.toString(brackets[1]));
+
+    return dp[1][n - 1];
+  }
+
   public static int mcm(int[] p){
 
     /* Your class should be named Solution
