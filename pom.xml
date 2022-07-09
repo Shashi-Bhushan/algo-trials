@@ -17,7 +17,7 @@
   <repositories>
     <repository>
       <id>princeton</id>
-      <url>https://dl.bintray.com/algs4/maven/</url>
+      <url>https://repo.spring.io/plugins-release/</url>
       <layout>default</layout>
     </repository>
   </repositories>
@@ -45,11 +45,12 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>edu.princeton.cs</groupId>
-      <artifactId>algs4</artifactId>
-      <version>1.0.1</version>
-    </dependency>
+<!--    https://algs4.cs.princeton.edu/code/algs4.jar -->
+<!--    <dependency>-->
+<!--      <groupId>edu.princeton.cs</groupId>-->
+<!--      <artifactId>algs4</artifactId>-->
+<!--      <version>1.0.2</version>-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>org.openjdk.jmh</groupId>
@@ -115,6 +116,7 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
           <compilerVersion>${java.version}</compilerVersion>
+          <encoding>UTF-8</encoding>
         </configuration>
         <executions>
           <execution>
