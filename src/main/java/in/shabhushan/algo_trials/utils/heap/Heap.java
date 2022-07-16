@@ -1,4 +1,4 @@
-package in.shabhushan.algo_trials.collections.heap;
+package in.shabhushan.algo_trials.utils.heap;
 
 public interface Heap<T> {
   public void insert(T item);

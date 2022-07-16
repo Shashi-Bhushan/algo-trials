@@ -1,5 +1,6 @@
 package in.shabhushan.algo_trials.collections.heap;
 
+import in.shabhushan.algo_trials.utils.heap.impl.PriorityQueue;
 import org.junit.Test;
 
 public class PriorityQueueTest {

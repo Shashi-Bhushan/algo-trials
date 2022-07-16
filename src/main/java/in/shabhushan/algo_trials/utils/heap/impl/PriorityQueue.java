@@ -1,6 +1,7 @@
-package in.shabhushan.algo_trials.collections.heap;
+package in.shabhushan.algo_trials.utils.heap.impl;
 
 import in.shabhushan.algo_trials.utils.Math;
+import in.shabhushan.algo_trials.utils.heap.Heap;
 
 import java.util.Comparator;
 import java.util.StringJoiner;
@@ -8,13 +9,14 @@ import java.util.StringJoiner;
 public class PriorityQueue<T> implements Heap<T> {
   protected static final int TOP = 0;
   protected T[] items;
+  // current index where next element needs to be inserted
   protected int current;
   private final Comparator<? super T> comparator;
 
   /**
    *
    * Build Heap with given depth and comparator
-   * @param depth
+   * @param depth maximum number of elements that it can accomodate will be 2 ^ N
    * @param comparator
    */
   public PriorityQueue(int depth, Comparator<? super T> comparator) {
@@ -43,6 +45,7 @@ public class PriorityQueue<T> implements Heap<T> {
 
     // while item is larger than parent
     while (parent >= 0 && comparator.compare(items[parent], item) > 0) {
+      // move items[parent] down to child's position
       items[index] = items[parent];
       index = parent;
       parent = parent(index);
@@ -117,9 +120,7 @@ public class PriorityQueue<T> implements Heap<T> {
       StringBuilder builder = new StringBuilder();
 
       int spaces = Math.pow(2, depth - i - 1);
-      for (int j = 0; j < spaces; j++) {
-        builder.append(" ");
-      }
+      builder.append(" ".repeat(java.lang.Math.max(0, spaces)));
 
       int from = Math.pow(2, i) - 1;
       int to = Math.pow(2, i + 1) - 1;
@@ -128,7 +129,7 @@ public class PriorityQueue<T> implements Heap<T> {
         if (items[index] == null) {
           builder.append(" ");
         } else {
-          builder.append(items[index].toString() + " ");
+          builder.append(items[index].toString()).append(" ");
         }
         index++;
       }
