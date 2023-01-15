@@ -46,11 +46,11 @@
       <scope>test</scope>
     </dependency>
 <!--    https://algs4.cs.princeton.edu/code/algs4.jar -->
-<!--    <dependency>-->
-<!--      <groupId>edu.princeton.cs</groupId>-->
-<!--      <artifactId>algs4</artifactId>-->
-<!--      <version>1.0.2</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>edu.princeton.cs</groupId>
+      <artifactId>algs4</artifactId>
+      <version>1.0.2</version>
+    </dependency>
 
     <dependency>
       <groupId>org.openjdk.jmh</groupId>

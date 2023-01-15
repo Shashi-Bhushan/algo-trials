@@ -10,7 +10,7 @@ package in.shabhushan.algo_trials.graph;
  * 1. These k dots are different: if i≠j then di is different from dj.
  * 2. k is at least 4.
  * 3. All dots belong to the same colour.
- * 4. For all 1 ≤ i ≤ k-1: di and di+1 are adjacent. Also, dk and d1 should also be adjacent. Cells x and y are called adjacent if they share an edge.
+ * 4. For all 1 ≤ i ≤ k-1: di and di+1 are adjacent. Also, dk and d1 should also be adjacent. Cells x and y are called adjacent if they share an graphEdge.
  * Since Gary is colour blind, he wants your help. Your task is to determine if there exists a cycle on the board.
  * <p>
  * Input Format :

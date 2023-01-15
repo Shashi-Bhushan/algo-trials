@@ -80,12 +80,12 @@ public class Exercise22_3_2 {
             } else if (v.getColor() == Color.GREY) {
                 backEdges.add(Map.entry(u.getNode(), v.getNode()));
             } else if (v.getColor() == Color.BLACK) {
-                // if u is ancestor of v (i.e. vertexU comes first when traversing from root to vertexV; check Fig 22.6 vertexQ and vertexW), then it's forward edge.
-                // else it's cross edge.
+                // if u is ancestor of v (i.e. vertexU comes first when traversing from root to vertexV; check Fig 22.6 vertexQ and vertexW), then it's forward graphEdge.
+                // else it's cross graphEdge.
                 // In other words (See Exercise 22.3-5), if u.startTime <  v.endTime
-                //  Then, it's forward edge
+                //  Then, it's forward graphEdge
                 // Else if v.endTime < u.startTime
-                //  Then, it's cross edge
+                //  Then, it's cross graphEdge
                 if (u.getStartTime() < v.getEndTime()) {
                     forwardEdges.add(Map.entry(u.getNode(), v.getNode()));
                 } else if (v.getEndTime() < u.getStartTime()) {

@@ -36,9 +36,9 @@
     - v.start < u.start < u.finish < v.finish implies that u is a descendant of v.
 
 * Classification of edges
-    - **Tree edges** are the edges of the DFS tree. Edge (u, v) is a tree edge if v was discovered using this edge.
-    - If u is a descendant of v in the DFS tree and there is an edge (u,v) in the graph, this edge is called a **back**
-      **edge**.
+    - **Tree edges** are the edges of the DFS tree. Edge (u, v) is a tree graphEdge if v was discovered using this graphEdge.
+    - If u is a descendant of v in the DFS tree and there is an graphEdge (u,v) in the graph, this graphEdge is called a **back**
+      **graphEdge**.
     - **Forward edges** are non tree edges (u,v) that connect ancestor u to descendant v.
     - **Cross edges** are all other edges, i.e. edges between two vertices in same DFS tree which are not in an
       ancestor-descenant relationship, as well as edges between different DFS trees.
@@ -60,7 +60,7 @@
 
 * In an SCC, every vertex v is reachable from every other vertex v.
 
-* A graph G and its reverse G<sup>R</sup> have the same SCC. G<sup>R</sup> is obtained by reversing every edge in G
+* A graph G and its reverse G<sup>R</sup> have the same SCC. G<sup>R</sup> is obtained by reversing every graphEdge in G
 
 * Total running time = **O(V + E)**.
 
@@ -71,7 +71,7 @@
 * MST algorithms are greedy algorithms and they use the cut property to build the MST.
 
 * Cut property: Let A be a subset of E included in a MST. Then let (S, V-S) be the cut containing A. If (u,v) is the
-  lightest edge crossing the cut, then adding {(u, v)} U A will also be a subset of some MST.
+  lightest graphEdge crossing the cut, then adding {(u, v)} U A will also be a subset of some MST.
 
 #### Kruskal's algorithm
 
@@ -112,6 +112,6 @@
 
 #### Dijkstra's algorithm
 
-* Works only with non negative edge weights.
+* Works only with non negative graphEdge weights.
 
 * Total running time = **O((V + E)log V)**.
