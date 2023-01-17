@@ -48,7 +48,7 @@ public class Exercise23_2_Kruskal {
         return parent;
     }
 
-    private static Edge[] getEdges(int n) {
+    public static Edge[] getEdges(int n) {
         Edge[] edges = new Edge[n];
         edges[0] = new Edge('a', 'b', 4);
         edges[1] = new Edge('a', 'h', 8);
@@ -69,7 +69,7 @@ public class Exercise23_2_Kruskal {
     }
 
 
-    private static class Edge {
+    public static class Edge {
         int source;
         int dest;
         int weight;
